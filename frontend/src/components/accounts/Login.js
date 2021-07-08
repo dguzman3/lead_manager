@@ -6,8 +6,8 @@ import { login } from '../../actions/auth';
 
 export class Login extends Component {
     state = {
-        username: '',
-        password: '',
+        username: 'demo',
+        password: 'testpass123',
     };
 
     static propTypes = {
