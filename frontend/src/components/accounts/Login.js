@@ -6,8 +6,8 @@ import { login } from '../../actions/auth';
 
 export class Login extends Component {
     state = {
-        username: 'demo',
-        password: 'testpass123',
+        username: '',
+        password: '',
     };
 
     static propTypes = {
@@ -21,6 +21,11 @@ export class Login extends Component {
     };
 
     onChange = e => this.setState({ [e.target.name]: e.target.value });
+
+    loginDemo = e => {
+        e.preventDefault();
+        this.props.login('Demo', 'testpass123');
+    }
 
     render() {
         if (this.props.isAuthenticated) {
@@ -61,6 +66,9 @@ export class Login extends Component {
                             Don't have an account? <Link to="/register">Register</Link>
                         </p>
                     </form>
+                    <button onClick={this.loginDemo} className="btn btn-success">
+                        Demo
+                    </button>
                 </div>
             </div>
         )
